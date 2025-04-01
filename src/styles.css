@@ -1,0 +1,128 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.start-button {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #333;
+}
+
+/* Game item styling */
+.game-item {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Animation for sliding items to the left */
+.slide-to-left {
+  animation: slideToLeft 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Animation for new item entering from right */
+.new-from-right {
+  animation: enterFromRight 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+
+/* VS logo animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* Keyframes for animations */
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Conveyor belt animation */
+.conveyor-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.conveyor-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+.conveyor-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .game-item {
+    height: 50vh;
+  }
+}
+
+/* Ensure no white space during transitions */
+.flex-col.md\:flex-row.w-full.h-full.relative {
+  overflow: hidden;
+  background-color: #000;
+}
