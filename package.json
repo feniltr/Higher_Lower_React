@@ -30,6 +30,8 @@
     "not op_mini all"
   ],
   "engines": {
-    "node": ">=14.0.0"
+    "node": "18.x",
+    "npm": "9.x"
   }
+
 }
